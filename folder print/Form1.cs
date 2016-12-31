@@ -70,17 +70,22 @@ namespace folder_print
                 {
                     foreach (string str in Directory.GetFiles(folderBox.Text))
                     {
-                        ProcessStartInfo psi = new ProcessStartInfo(str);
-                        FileInfo file = new FileInfo(str);
-                        infoLabel.Text = "Processing " + str;
-                        psi.Verb = "print";
-                        Process.Start(psi);
-                        await Task.Delay(10000);
-                        while (IsFileLocked(file))
-                            Thread.Sleep(2000);
-                        File.Delete(str);
-                        if (serviceRunning == false)
-                            break;
+                        if (str.Substring(str.Length - 3) == "pdf")
+                        {
+                            ProcessStartInfo psi = new ProcessStartInfo(str);
+                            FileInfo file = new FileInfo(str);
+                            string[] strSubstr = str.Split('\\');
+                            infoLabel.Text = "Processing: \n" + strSubstr[strSubstr.Length - 1];
+                            psi.Verb = "print";
+                            Process.Start(psi);
+                            await Task.Delay(10000);
+                            while (IsFileLocked(file))
+                                Thread.Sleep(2000);
+                            File.Delete(str);
+                            infoLabel.Text = "Nothing to do";
+                            if (serviceRunning == false)
+                                break;
+                        }                        
                     }
                 }
                 await Task.Delay(1000);
