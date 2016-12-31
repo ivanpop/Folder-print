@@ -1,0 +1,9 @@
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\bin\Debug\folder print.exe.config
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\bin\Debug\folder print.exe
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\bin\Debug\folder print.pdb
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.csprojResolveAssemblyReference.cache
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder_print.Form1.resources
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder_print.Properties.Resources.resources
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.csproj.GenerateResource.Cache
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.exe
+c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.pdb
