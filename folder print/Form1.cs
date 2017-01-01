@@ -18,7 +18,6 @@ namespace folder_print
 
             //read settings.ini
             if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
-            {                
                 foreach (string str in File.ReadLines(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
                 {
                     if (str.Contains("path"))
@@ -26,8 +25,10 @@ namespace folder_print
                         folderBox.Text = str.Substring(5);
                         serviceButton.Enabled = true;
                     }
+                    if (str.Contains("minimized=true"))                    
+                        this.WindowState = FormWindowState.Minimized;
+                    
                 }
-            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -39,9 +40,7 @@ namespace folder_print
             }
 
             else if (FormWindowState.Normal == this.WindowState)
-            {
                 notifyIcon1.Visible = false;
-            }
         }
 
         private void serviceButton_Click(object sender, EventArgs e)
@@ -57,7 +56,6 @@ namespace folder_print
                 }                    
                 else
                     infoLabel.Text = "Folder doesn't exist.";                
-                //this.WindowState = FormWindowState.Minimized;
             }
             else
             {
