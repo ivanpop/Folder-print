@@ -16,5 +16,14 @@ namespace folder_print
         {
             InitializeComponent();
         }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            using (var folderDialog = new FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                    folderBox.Text = folderDialog.SelectedPath;
+            }
+        }
     }
 }
