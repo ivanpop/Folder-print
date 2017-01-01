@@ -13,6 +13,7 @@ C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\fol
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\bin\Debug\folder print.exe
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\bin\Debug\folder print.pdb
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.csprojResolveAssemblyReference.cache
-C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.Form1.resources
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.Properties.Resources.resources
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.csproj.GenerateResource.Cache
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.createConfBtn.resources
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.configInfo.resources

@@ -1,6 +1,6 @@
 ﻿namespace folder_print
 {
-    partial class Form1
+    partial class createConfBtn
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(createConfBtn));
             this.serviceButton = new System.Windows.Forms.Button();
             this.folderBox = new System.Windows.Forms.TextBox();
             this.folderBoxLabel = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.infoLabel = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // serviceButton
@@ -94,17 +95,28 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 126);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Create configuration file";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // createConfBtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 143);
+            this.ClientSize = new System.Drawing.Size(284, 157);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.folderBoxLabel);
             this.Controls.Add(this.folderBox);
             this.Controls.Add(this.serviceButton);
-            this.Name = "Form1";
+            this.Name = "createConfBtn";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -119,6 +131,7 @@
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

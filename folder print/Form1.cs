@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace folder_print
 {
-    public partial class Form1 : Form
+    public partial class createConfBtn : Form
     {
         bool serviceRunning = false;
 
-        public Form1()
+        public createConfBtn()
         {
             InitializeComponent();
             this.ShowInTaskbar = MaximizeBox = false;
@@ -133,6 +133,12 @@ namespace folder_print
             }
 
             return false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            configInfo config = new configInfo();
+            config.Show();
         }
     }
 }
