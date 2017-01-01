@@ -7,3 +7,12 @@ c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folde
 c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.csproj.GenerateResource.Cache
 c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.exe
 c:\users\ivanp\onedrive\documents\visual studio 2015\Projects\folder print\folder print\obj\Debug\folder print.pdb
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\bin\Debug\folder print.exe.config
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.exe
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.pdb
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\bin\Debug\folder print.exe
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\bin\Debug\folder print.pdb
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.csprojResolveAssemblyReference.cache
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.Form1.resources
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.Properties.Resources.resources
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.csproj.GenerateResource.Cache

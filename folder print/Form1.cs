@@ -15,6 +15,19 @@ namespace folder_print
         {
             InitializeComponent();
             this.ShowInTaskbar = MaximizeBox = false;
+
+            //read settings.ini
+            if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
+            {                
+                foreach (string str in File.ReadLines(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
+                {
+                    if (str.Contains("path"))
+                    {
+                        folderBox.Text = str.Substring(5);
+                        serviceButton.Enabled = true;
+                    }
+                }
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -34,12 +47,17 @@ namespace folder_print
         private void serviceButton_Click(object sender, EventArgs e)
         {
             if (serviceButton.Text == "Start service")
-            {                
-                serviceButton.Text = "Stop service";
+            {   
                 infoLabel.Text = "Nothing to do";
                 serviceRunning = true;
-                runService();
-                this.WindowState = FormWindowState.Minimized;
+                if (Directory.Exists(folderBox.Text))
+                {
+                    serviceButton.Text = "Stop service";
+                    runService();
+                }                    
+                else
+                    infoLabel.Text = "Folder doesn't exist.";                
+                //this.WindowState = FormWindowState.Minimized;
             }
             else
             {
