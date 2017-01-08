@@ -30,6 +30,9 @@ namespace folder_print
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            string settings = ""; // all text to be written to settings.ini
+            bool firstLine = true; // check if firstLine. If true Newline won't be inserted.
+
             if (startWithWindowsBox.Checked)
             {
                 var startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
@@ -39,7 +42,20 @@ namespace folder_print
                 windowsApplicationShortcut.WorkingDirectory = Application.StartupPath;
                 windowsApplicationShortcut.TargetPath = Application.ExecutablePath;
                 windowsApplicationShortcut.Save();
-            }            
+            }
+            
+            if (startMinimizedBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "startMinimized = true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "startMinimized = true";
+            }
+
+            System.IO.File.WriteAllText(Application.ExecutablePath.Substring(0, Application.ExecutablePath.Length - 17) + "\\settings.ini", settings);
         }
     }
 }
