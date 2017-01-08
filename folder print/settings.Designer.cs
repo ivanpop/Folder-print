@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(settings));
             this.startWithWindowsBox = new System.Windows.Forms.CheckBox();
             this.startMinimizedBox = new System.Windows.Forms.CheckBox();
             this.predifinedFolderBox = new System.Windows.Forms.GroupBox();
@@ -211,6 +212,7 @@
             this.Controls.Add(this.predifinedFolderBox);
             this.Controls.Add(this.startMinimizedBox);
             this.Controls.Add(this.startWithWindowsBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "settings";
             this.Text = "settings";
             this.predifinedFolderBox.ResumeLayout(false);

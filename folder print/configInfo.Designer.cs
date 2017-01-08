@@ -58,6 +58,7 @@
             this.ClientSize = new System.Drawing.Size(370, 151);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.informationLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "configInfo";
             this.Text = "Attention";
             this.ResumeLayout(false);

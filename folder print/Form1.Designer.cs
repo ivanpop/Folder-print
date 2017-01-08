@@ -116,8 +116,9 @@
             this.Controls.Add(this.folderBoxLabel);
             this.Controls.Add(this.folderBox);
             this.Controls.Add(this.serviceButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "createConfBtn";
-            this.Text = "Form1";
+            this.Text = "Folder print";
             this.ResumeLayout(false);
             this.PerformLayout();
 
