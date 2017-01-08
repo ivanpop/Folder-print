@@ -37,7 +37,6 @@
             this.folderBox = new System.Windows.Forms.TextBox();
             this.startImmediatelyBox = new System.Windows.Forms.CheckBox();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.confirmationLbl = new System.Windows.Forms.Label();
             this.extensionsBox = new System.Windows.Forms.GroupBox();
             this.xlsxCheckBox = new System.Windows.Forms.CheckBox();
             this.xlsCheckBox = new System.Windows.Forms.CheckBox();
@@ -105,10 +104,12 @@
             this.folderBox.Name = "folderBox";
             this.folderBox.Size = new System.Drawing.Size(247, 20);
             this.folderBox.TabIndex = 4;
+            this.folderBox.TextChanged += new System.EventHandler(this.folderBox_TextChanged);
             // 
             // startImmediatelyBox
             // 
             this.startImmediatelyBox.AutoSize = true;
+            this.startImmediatelyBox.Enabled = false;
             this.startImmediatelyBox.Location = new System.Drawing.Point(13, 59);
             this.startImmediatelyBox.Name = "startImmediatelyBox";
             this.startImmediatelyBox.Size = new System.Drawing.Size(160, 17);
@@ -125,16 +126,6 @@
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // confirmationLbl
-            // 
-            this.confirmationLbl.AutoSize = true;
-            this.confirmationLbl.Location = new System.Drawing.Point(62, 257);
-            this.confirmationLbl.Name = "confirmationLbl";
-            this.confirmationLbl.Size = new System.Drawing.Size(164, 13);
-            this.confirmationLbl.TabIndex = 5;
-            this.confirmationLbl.Text = "Configuration saved successfully!";
-            this.confirmationLbl.Visible = false;
             // 
             // extensionsBox
             // 
@@ -204,9 +195,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 283);
+            this.ClientSize = new System.Drawing.Size(284, 253);
             this.Controls.Add(this.extensionsBox);
-            this.Controls.Add(this.confirmationLbl);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.startImmediatelyBox);
             this.Controls.Add(this.predifinedFolderBox);
@@ -214,7 +204,7 @@
             this.Controls.Add(this.startWithWindowsBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "settings";
-            this.Text = "settings";
+            this.Text = "Settings";
             this.predifinedFolderBox.ResumeLayout(false);
             this.predifinedFolderBox.PerformLayout();
             this.extensionsBox.ResumeLayout(false);
@@ -234,7 +224,6 @@
         private System.Windows.Forms.TextBox folderBox;
         private System.Windows.Forms.CheckBox startImmediatelyBox;
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Label confirmationLbl;
         private System.Windows.Forms.GroupBox extensionsBox;
         private System.Windows.Forms.CheckBox xlsxCheckBox;
         private System.Windows.Forms.CheckBox xlsCheckBox;

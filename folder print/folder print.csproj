@@ -54,6 +54,12 @@
     <Compile Include="configInfo.Designer.cs">
       <DependentUpon>configInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="configSucess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="configSucess.Designer.cs">
+      <DependentUpon>configSucess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <EmbeddedResource Include="configInfo.resx">
       <DependentUpon>configInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="configSucess.resx">
+      <DependentUpon>configSucess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

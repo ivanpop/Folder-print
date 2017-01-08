@@ -20,12 +20,12 @@ namespace folder_print
             if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
                 foreach (string str in File.ReadLines(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
                 {
-                    if (str.Contains("path"))
+                    if (str.Contains("path="))
                     {
                         folderBox.Text = str.Substring(5);
                         serviceButton.Enabled = true;
                     }
-                    if (str.Contains("minimized=true"))                    
+                    if (str.Contains("startMinimized=true"))                    
                         this.WindowState = FormWindowState.Minimized;
                     
                 }

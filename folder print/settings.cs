@@ -17,14 +17,17 @@ namespace folder_print
         public settings()
         {
             InitializeComponent();
-        }
+        }        
 
         private void browseButton_Click(object sender, EventArgs e)
         {
             using (var folderDialog = new FolderBrowserDialog())
             {
                 if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
                     folderBox.Text = folderDialog.SelectedPath;
+                    startImmediatelyBox.Enabled = true;
+                }                    
             }
         }
 
@@ -43,19 +46,106 @@ namespace folder_print
                 windowsApplicationShortcut.TargetPath = Application.ExecutablePath;
                 windowsApplicationShortcut.Save();
             }
+
+            if (folderBox.Text != "")
+            {
+                if (firstLine)
+                {
+                    settings += "path=" + folderBox.Text;
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "path=" + folderBox.Text;
+            }
             
             if (startMinimizedBox.Checked)
             {
                 if (firstLine)
                 {
-                    settings += "startMinimized = true";
+                    settings += "startMinimized=true";
                     firstLine = false;
                 }
                 else
-                    settings += Environment.NewLine + "startMinimized = true";
+                    settings += Environment.NewLine + "startMinimized=true";
+            }
+
+            if (startImmediatelyBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "startImmediately=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "startImmediately=true";
+            }
+
+            if (pdfCheckBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "pdf=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "pdf=true";
+            }
+
+            if (docCheckBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "doc=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "doc=true";
+            }
+
+            if (docxCheckBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "docx=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "docx=true";
+            }
+
+            if (xlsCheckBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "xls=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "xls=true";
+            }
+
+            if (xlsxCheckBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "xlsx=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "xlsx=true";
             }
 
             System.IO.File.WriteAllText(Application.ExecutablePath.Substring(0, Application.ExecutablePath.Length - 17) + "\\settings.ini", settings);
+
+            configSucessForm csf = new configSucessForm();
+            csf.Show();            
+        }
+
+        private void folderBox_TextChanged(object sender, EventArgs e)
+        {
+            if (folderBox.Text.Length > 0)
+                startImmediatelyBox.Enabled = true;
+            else startImmediatelyBox.Enabled = false;
         }
     }
 }
