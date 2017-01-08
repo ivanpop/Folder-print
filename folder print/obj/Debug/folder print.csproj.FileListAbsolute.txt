@@ -18,3 +18,5 @@ C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\fol
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.createConfBtn.resources
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.configInfo.resources
 C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder_print.settings.resources
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\ivanp\OneDrive\Documents\GitHub\Folder-print\folder print\obj\Debug\folder print.csproj.ResolveComReference.cache

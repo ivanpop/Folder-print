@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="informationLabel.Text" xml:space="preserve">
+    <value>The configuration file can be used to save all the settings you make to this program. You can set the program to start with Windows, to start minimized, to set the monitoring folder and etc.
+
+Setting the program to run as Windows starts will create a shortcut  in your StartUp folder.
+</value>
+  </data>
 </root>

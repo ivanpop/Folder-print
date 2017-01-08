@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IWshRuntimeLibrary;
+using System.IO;
 
 namespace folder_print
 {
@@ -24,6 +26,17 @@ namespace folder_print
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                     folderBox.Text = folderDialog.SelectedPath;
             }
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            var startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            var shell = new WshShell();
+            var shortCutLinkFilePath = Path.Combine(startupFolderPath + "\\folder print.lnk");
+            var windowsApplicationShortcut = (IWshShortcut)shell.CreateShortcut(shortCutLinkFilePath);
+            windowsApplicationShortcut.WorkingDirectory = Application.StartupPath;
+            windowsApplicationShortcut.TargetPath = Application.ExecutablePath;
+            windowsApplicationShortcut.Save();
         }
     }
 }

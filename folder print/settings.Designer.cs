@@ -37,7 +37,14 @@
             this.startImmediatelyBox = new System.Windows.Forms.CheckBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.confirmationLbl = new System.Windows.Forms.Label();
+            this.extensionsBox = new System.Windows.Forms.GroupBox();
+            this.xlsxCheckBox = new System.Windows.Forms.CheckBox();
+            this.xlsCheckBox = new System.Windows.Forms.CheckBox();
+            this.docxCheckBox = new System.Windows.Forms.CheckBox();
+            this.docCheckBox = new System.Windows.Forms.CheckBox();
+            this.pdfCheckBox = new System.Windows.Forms.CheckBox();
             this.predifinedFolderBox.SuspendLayout();
+            this.extensionsBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // startWithWindowsBox
@@ -65,7 +72,7 @@
             this.predifinedFolderBox.Controls.Add(this.browseButton);
             this.predifinedFolderBox.Controls.Add(this.folderBoxLabel);
             this.predifinedFolderBox.Controls.Add(this.folderBox);
-            this.predifinedFolderBox.Location = new System.Drawing.Point(13, 91);
+            this.predifinedFolderBox.Location = new System.Drawing.Point(13, 138);
             this.predifinedFolderBox.Name = "predifinedFolderBox";
             this.predifinedFolderBox.Size = new System.Drawing.Size(259, 76);
             this.predifinedFolderBox.TabIndex = 2;
@@ -110,28 +117,94 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(105, 173);
+            this.saveBtn.Location = new System.Drawing.Point(105, 220);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 4;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // confirmationLbl
             // 
             this.confirmationLbl.AutoSize = true;
-            this.confirmationLbl.Location = new System.Drawing.Point(62, 210);
+            this.confirmationLbl.Location = new System.Drawing.Point(62, 257);
             this.confirmationLbl.Name = "confirmationLbl";
             this.confirmationLbl.Size = new System.Drawing.Size(164, 13);
             this.confirmationLbl.TabIndex = 5;
             this.confirmationLbl.Text = "Configuration saved successfully!";
             this.confirmationLbl.Visible = false;
             // 
+            // extensionsBox
+            // 
+            this.extensionsBox.Controls.Add(this.xlsxCheckBox);
+            this.extensionsBox.Controls.Add(this.xlsCheckBox);
+            this.extensionsBox.Controls.Add(this.docxCheckBox);
+            this.extensionsBox.Controls.Add(this.docCheckBox);
+            this.extensionsBox.Controls.Add(this.pdfCheckBox);
+            this.extensionsBox.Location = new System.Drawing.Point(13, 83);
+            this.extensionsBox.Name = "extensionsBox";
+            this.extensionsBox.Size = new System.Drawing.Size(253, 49);
+            this.extensionsBox.TabIndex = 6;
+            this.extensionsBox.TabStop = false;
+            this.extensionsBox.Text = "File extensions to monitor";
+            // 
+            // xlsxCheckBox
+            // 
+            this.xlsxCheckBox.AutoSize = true;
+            this.xlsxCheckBox.Location = new System.Drawing.Point(201, 19);
+            this.xlsxCheckBox.Name = "xlsxCheckBox";
+            this.xlsxCheckBox.Size = new System.Drawing.Size(43, 17);
+            this.xlsxCheckBox.TabIndex = 11;
+            this.xlsxCheckBox.Text = "xlsx";
+            this.xlsxCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // xlsCheckBox
+            // 
+            this.xlsCheckBox.AutoSize = true;
+            this.xlsCheckBox.Location = new System.Drawing.Point(157, 19);
+            this.xlsCheckBox.Name = "xlsCheckBox";
+            this.xlsCheckBox.Size = new System.Drawing.Size(38, 17);
+            this.xlsCheckBox.TabIndex = 10;
+            this.xlsCheckBox.Text = "xls";
+            this.xlsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // docxCheckBox
+            // 
+            this.docxCheckBox.AutoSize = true;
+            this.docxCheckBox.Location = new System.Drawing.Point(102, 19);
+            this.docxCheckBox.Name = "docxCheckBox";
+            this.docxCheckBox.Size = new System.Drawing.Size(49, 17);
+            this.docxCheckBox.TabIndex = 9;
+            this.docxCheckBox.Text = "docx";
+            this.docxCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // docCheckBox
+            // 
+            this.docCheckBox.AutoSize = true;
+            this.docCheckBox.Location = new System.Drawing.Point(52, 19);
+            this.docCheckBox.Name = "docCheckBox";
+            this.docCheckBox.Size = new System.Drawing.Size(44, 17);
+            this.docCheckBox.TabIndex = 8;
+            this.docCheckBox.Text = "doc";
+            this.docCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // pdfCheckBox
+            // 
+            this.pdfCheckBox.AutoSize = true;
+            this.pdfCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.pdfCheckBox.Name = "pdfCheckBox";
+            this.pdfCheckBox.Size = new System.Drawing.Size(41, 17);
+            this.pdfCheckBox.TabIndex = 7;
+            this.pdfCheckBox.Text = "pdf";
+            this.pdfCheckBox.UseVisualStyleBackColor = true;
+            // 
             // settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 241);
+            this.ClientSize = new System.Drawing.Size(284, 283);
+            this.Controls.Add(this.extensionsBox);
             this.Controls.Add(this.confirmationLbl);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.startImmediatelyBox);
@@ -142,6 +215,8 @@
             this.Text = "settings";
             this.predifinedFolderBox.ResumeLayout(false);
             this.predifinedFolderBox.PerformLayout();
+            this.extensionsBox.ResumeLayout(false);
+            this.extensionsBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +233,11 @@
         private System.Windows.Forms.CheckBox startImmediatelyBox;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label confirmationLbl;
+        private System.Windows.Forms.GroupBox extensionsBox;
+        private System.Windows.Forms.CheckBox xlsxCheckBox;
+        private System.Windows.Forms.CheckBox xlsCheckBox;
+        private System.Windows.Forms.CheckBox docxCheckBox;
+        private System.Windows.Forms.CheckBox docCheckBox;
+        private System.Windows.Forms.CheckBox pdfCheckBox;
     }
 }
