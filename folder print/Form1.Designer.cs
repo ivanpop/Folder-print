@@ -64,6 +64,7 @@
             this.folderBox.Name = "folderBox";
             this.folderBox.Size = new System.Drawing.Size(260, 20);
             this.folderBox.TabIndex = 1;
+            this.folderBox.TextChanged += new System.EventHandler(this.folderBox_TextChanged);
             // 
             // folderBoxLabel
             // 
@@ -129,6 +130,8 @@
             // xlsxCheckBox
             // 
             this.xlsxCheckBox.AutoSize = true;
+            this.xlsxCheckBox.Checked = true;
+            this.xlsxCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xlsxCheckBox.Location = new System.Drawing.Point(201, 19);
             this.xlsxCheckBox.Name = "xlsxCheckBox";
             this.xlsxCheckBox.Size = new System.Drawing.Size(43, 17);
@@ -139,6 +142,8 @@
             // xlsCheckBox
             // 
             this.xlsCheckBox.AutoSize = true;
+            this.xlsCheckBox.Checked = true;
+            this.xlsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xlsCheckBox.Location = new System.Drawing.Point(157, 19);
             this.xlsCheckBox.Name = "xlsCheckBox";
             this.xlsCheckBox.Size = new System.Drawing.Size(38, 17);
@@ -149,6 +154,8 @@
             // docxCheckBox
             // 
             this.docxCheckBox.AutoSize = true;
+            this.docxCheckBox.Checked = true;
+            this.docxCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.docxCheckBox.Location = new System.Drawing.Point(102, 19);
             this.docxCheckBox.Name = "docxCheckBox";
             this.docxCheckBox.Size = new System.Drawing.Size(49, 17);
@@ -159,6 +166,8 @@
             // docCheckBox
             // 
             this.docCheckBox.AutoSize = true;
+            this.docCheckBox.Checked = true;
+            this.docCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.docCheckBox.Location = new System.Drawing.Point(52, 19);
             this.docCheckBox.Name = "docCheckBox";
             this.docCheckBox.Size = new System.Drawing.Size(44, 17);
@@ -169,6 +178,8 @@
             // pdfCheckBox
             // 
             this.pdfCheckBox.AutoSize = true;
+            this.pdfCheckBox.Checked = true;
+            this.pdfCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pdfCheckBox.Location = new System.Drawing.Point(6, 19);
             this.pdfCheckBox.Name = "pdfCheckBox";
             this.pdfCheckBox.Size = new System.Drawing.Size(41, 17);

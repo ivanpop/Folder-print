@@ -18,6 +18,9 @@ namespace folder_print
 
             //read settings.ini
             if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
+            {
+                pdfCheckBox.Checked = docCheckBox.Checked = docxCheckBox.Checked = xlsCheckBox.Checked = xlsxCheckBox.Checked = false;
+
                 foreach (string str in File.ReadLines(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
                 {
                     if (str.Contains("path="))
@@ -25,10 +28,16 @@ namespace folder_print
                         folderBox.Text = str.Substring(5);
                         serviceButton.Enabled = true;
                     }
-                    if (str.Contains("startMinimized=true"))                    
-                        this.WindowState = FormWindowState.Minimized;
-                    
+
+                    if (str.Contains("startMinimized=true")) this.WindowState = FormWindowState.Minimized;                    
+                    if (str.Contains("pdf=true")) pdfCheckBox.Checked = true;
+                    if (str.Contains("doc=true")) docCheckBox.Checked = true;
+                    if (str.Contains("docx=true")) docxCheckBox.Checked = true;
+                    if (str.Contains("xls=true")) xlsCheckBox.Checked = true;
+                    if (str.Contains("xlsx=true")) xlsxCheckBox.Checked = true;
+                    if (str.Contains("startImmediately=true")) serviceButtonClick();
                 }
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -43,19 +52,19 @@ namespace folder_print
                 notifyIcon1.Visible = false;
         }
 
-        private void serviceButton_Click(object sender, EventArgs e)
+        void serviceButtonClick ()
         {
             if (serviceButton.Text == "Start service")
-            {   
+            {
                 infoLabel.Text = "Nothing to do";
                 serviceRunning = true;
                 if (Directory.Exists(folderBox.Text))
                 {
                     serviceButton.Text = "Stop service";
                     runService();
-                }                    
+                }
                 else
-                    infoLabel.Text = "Folder doesn't exist.";                
+                    infoLabel.Text = "Folder doesn't exist.";
             }
             else
             {
@@ -63,6 +72,11 @@ namespace folder_print
                 infoLabel.Text = "Start the service";
                 serviceRunning = false;
             }
+        }
+
+        private void serviceButton_Click(object sender, EventArgs e)
+        {
+            serviceButtonClick();
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -91,11 +105,11 @@ namespace folder_print
                     psi.Verb = "print";
                     Process.Start(psi);
                     Thread.Sleep(10000);
-                    while (IsFileLocked(file)) Thread.Sleep(5000);                    
+                    while (IsFileLocked(file)) Thread.Sleep(5000);
                     File.Delete(str);
                     infoLabel.Text = "Nothing to do";
                     if (serviceRunning == false)
-                        break;                                       
+                        break;
                 }
             }
         }
@@ -147,6 +161,12 @@ namespace folder_print
         {
             configInfo config = new configInfo();
             config.Show();
+        }
+
+        private void folderBox_TextChanged(object sender, EventArgs e)
+        {
+            infoLabel.Text = (folderBox.Text.Length > 0) ? "Start the service" : "Select a folder";
+            serviceButton.Enabled = (folderBox.Text.Length > 0) ? true : false;
         }
     }
 }
