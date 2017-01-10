@@ -78,31 +78,39 @@ namespace folder_print
             }
         }
 
+        private void print(string extension)
+        {
+            foreach (string str in Directory.GetFiles(folderBox.Text))
+            {
+                if (str.Substring(str.Length - 3) == extension)
+                {
+                    ProcessStartInfo psi = new ProcessStartInfo(str);
+                    FileInfo file = new FileInfo(str);
+                    string[] strSubstr = str.Split('\\');
+                    infoLabel.Text = "Processing: \n" + strSubstr[strSubstr.Length - 1];
+                    psi.Verb = "print";
+                    Process.Start(psi);
+                    Thread.Sleep(10000);
+                    while (IsFileLocked(file)) Thread.Sleep(5000);                    
+                    File.Delete(str);
+                    infoLabel.Text = "Nothing to do";
+                    if (serviceRunning == false)
+                        break;                                       
+                }
+            }
+        }
+
         private async void runService()
         {
             do
             {
                 if (Directory.GetFiles(folderBox.Text).Length > 0)
                 {
-                    foreach (string str in Directory.GetFiles(folderBox.Text))
-                    {
-                        if (str.Substring(str.Length - 3) == "pdf")
-                        {
-                            ProcessStartInfo psi = new ProcessStartInfo(str);
-                            FileInfo file = new FileInfo(str);
-                            string[] strSubstr = str.Split('\\');
-                            infoLabel.Text = "Processing: \n" + strSubstr[strSubstr.Length - 1];
-                            psi.Verb = "print";
-                            Process.Start(psi);
-                            await Task.Delay(10000);
-                            while (IsFileLocked(file))
-                                Thread.Sleep(2000);
-                            File.Delete(str);
-                            infoLabel.Text = "Nothing to do";
-                            if (serviceRunning == false)
-                                break;
-                        }                        
-                    }
+                    if (pdfCheckBox.Checked) print("pdf");
+                    if (docCheckBox.Checked) print("doc");
+                    if (docxCheckBox.Checked) print("ocx");
+                    if (xlsCheckBox.Checked) print("xls");
+                    if (xlsxCheckBox.Checked) print("lsx");
                 }
                 await Task.Delay(1000);
             } while (serviceRunning == true);
