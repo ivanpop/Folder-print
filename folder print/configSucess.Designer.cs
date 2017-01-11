@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(configSucessForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.messageLbl = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // messageLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Configuration file saved successfully.";
+            this.messageLbl.AutoSize = true;
+            this.messageLbl.Location = new System.Drawing.Point(12, 9);
+            this.messageLbl.Name = "messageLbl";
+            this.messageLbl.Size = new System.Drawing.Size(0, 13);
+            this.messageLbl.TabIndex = 0;
             // 
             // okBtn
             // 
@@ -58,10 +57,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(206, 67);
             this.Controls.Add(this.okBtn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.messageLbl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "configSucessForm";
-            this.Text = "Sucess";
+            this.Text = "Message";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -69,7 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label messageLbl;
         private System.Windows.Forms.Button okBtn;
     }
 }

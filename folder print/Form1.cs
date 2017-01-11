@@ -106,7 +106,15 @@ namespace folder_print
                     Process.Start(psi);
                     Thread.Sleep(10000);
                     while (IsFileLocked(file)) Thread.Sleep(5000);
-                    File.Delete(str);
+                    try
+                    {
+                        File.Delete(str);
+                    }
+                    catch (IOException)
+                    {
+                        infoLabel.Text = "File " + strSubstr[strSubstr.Length - 1] + " cannot be deleted!";
+                    }
+                    
                     infoLabel.Text = "Nothing to do";
                     if (serviceRunning == false)
                         break;

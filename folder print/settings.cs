@@ -7,6 +7,8 @@ namespace folder_print
 {
     public partial class settings : Form
     {
+        public static string messageText = ""; //text to be displayed when save is pressed
+
         public settings()
         {
             InitializeComponent();
@@ -128,7 +130,15 @@ namespace folder_print
                     settings += Environment.NewLine + "xlsx=true";
             }
 
-            System.IO.File.WriteAllText(Application.ExecutablePath.Substring(0, Application.ExecutablePath.Length - 17) + "\\settings.ini", settings);
+            try
+            {
+                System.IO.File.WriteAllText(Application.ExecutablePath.Substring(0, Application.ExecutablePath.Length - 17) + "\\settings.ini", settings);
+                messageText = "Configuration file saved successfully.";
+            }
+            catch(IOException)
+            {
+                messageText = "Configuration file cannot be created!";
+            }            
 
             configSucessForm csf = new configSucessForm();
             csf.Show();            
