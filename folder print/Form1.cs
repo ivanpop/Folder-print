@@ -94,30 +94,34 @@ namespace folder_print
 
         private void print(string extension)
         {
-            foreach (string str in Directory.GetFiles(folderBox.Text))
+            if (serviceRunning)
             {
-                if (str.Substring(str.Length - 3) == extension)
+                foreach (string str in Directory.GetFiles(folderBox.Text))
                 {
-                    ProcessStartInfo psi = new ProcessStartInfo(str);
-                    FileInfo file = new FileInfo(str);
-                    string[] strSubstr = str.Split('\\');
-                    infoLabel.Text = "Processing: \n" + strSubstr[strSubstr.Length - 1];
-                    psi.Verb = "print";
-                    Process.Start(psi);
-                    Thread.Sleep(10000);
-                    while (IsFileLocked(file)) Thread.Sleep(5000);
-                    try
+                    if (str.Substring(str.Length - 3) == extension)
                     {
-                        File.Delete(str);
+                        ProcessStartInfo psi = new ProcessStartInfo(str);
+                        FileInfo file = new FileInfo(str);
+                        string[] strSubstr = str.Split('\\');
+                        infoLabel.Text = "Processing: \n" + strSubstr[strSubstr.Length - 1];
+                        psi.Verb = "print";
+                        Process.Start(psi);
+                        Thread.Sleep(10000);
+                        while (IsFileLocked(file)) Thread.Sleep(5000);
+
+                        try
+                        {
+                            File.Delete(str);
+                        }
+                        catch (IOException)
+                        {
+                            infoLabel.Text = "File " + strSubstr[strSubstr.Length - 1] + " cannot be deleted!";
+                            serviceRunning = false;
+                            break;
+                        }
+
+                        infoLabel.Text = "Nothing to do";
                     }
-                    catch (IOException)
-                    {
-                        infoLabel.Text = "File " + strSubstr[strSubstr.Length - 1] + " cannot be deleted!";
-                    }
-                    
-                    infoLabel.Text = "Nothing to do";
-                    if (serviceRunning == false)
-                        break;
                 }
             }
         }
