@@ -130,6 +130,17 @@ namespace folder_print
                     settings += Environment.NewLine + "xlsx=true";
             }
 
+            if (rtfCheckBox.Checked)
+            {
+                if (firstLine)
+                {
+                    settings += "rtf=true";
+                    firstLine = false;
+                }
+                else
+                    settings += Environment.NewLine + "rtf=true";
+            }
+
             try
             {
                 System.IO.File.WriteAllText(Application.ExecutablePath.Substring(0, Application.ExecutablePath.Length - 17) + "\\settings.ini", settings);

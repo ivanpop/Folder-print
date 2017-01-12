@@ -19,7 +19,7 @@ namespace folder_print
             //read settings.ini
             if (File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
             {
-                pdfCheckBox.Checked = docCheckBox.Checked = docxCheckBox.Checked = xlsCheckBox.Checked = xlsxCheckBox.Checked = false;
+                pdfCheckBox.Checked = docCheckBox.Checked = docxCheckBox.Checked = xlsCheckBox.Checked = xlsxCheckBox.Checked = rtfCheckBox.Checked = false;
 
                 foreach (string str in File.ReadLines(System.AppDomain.CurrentDomain.BaseDirectory + "settings.ini"))
                 {
@@ -35,6 +35,7 @@ namespace folder_print
                     if (str.Contains("docx=true")) docxCheckBox.Checked = true;
                     if (str.Contains("xls=true")) xlsCheckBox.Checked = true;
                     if (str.Contains("xlsx=true")) xlsxCheckBox.Checked = true;
+                    if (str.Contains("rtf=true")) rtfCheckBox.Checked = true;
                     if (str.Contains("startImmediately=true")) serviceButtonClick();
                 }
             }
@@ -137,6 +138,7 @@ namespace folder_print
                     if (docxCheckBox.Checked) print("ocx");
                     if (xlsCheckBox.Checked) print("xls");
                     if (xlsxCheckBox.Checked) print("lsx");
+                    if (rtfCheckBox.Checked) print("rtf");
                 }
                 await Task.Delay(1000);
             } while (serviceRunning == true);

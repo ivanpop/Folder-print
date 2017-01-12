@@ -43,6 +43,7 @@
             this.docxCheckBox = new System.Windows.Forms.CheckBox();
             this.docCheckBox = new System.Windows.Forms.CheckBox();
             this.pdfCheckBox = new System.Windows.Forms.CheckBox();
+            this.rtfCheckBox = new System.Windows.Forms.CheckBox();
             this.extensionsBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,9 +51,9 @@
             // 
             this.serviceButton.Enabled = false;
             this.serviceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.serviceButton.Location = new System.Drawing.Point(12, 63);
+            this.serviceButton.Location = new System.Drawing.Point(169, 165);
             this.serviceButton.Name = "serviceButton";
-            this.serviceButton.Size = new System.Drawing.Size(81, 57);
+            this.serviceButton.Size = new System.Drawing.Size(130, 35);
             this.serviceButton.TabIndex = 0;
             this.serviceButton.Text = "Start service";
             this.serviceButton.UseVisualStyleBackColor = true;
@@ -60,16 +61,16 @@
             // 
             // folderBox
             // 
-            this.folderBox.Location = new System.Drawing.Point(12, 37);
+            this.folderBox.Location = new System.Drawing.Point(9, 34);
             this.folderBox.Name = "folderBox";
-            this.folderBox.Size = new System.Drawing.Size(260, 20);
+            this.folderBox.Size = new System.Drawing.Size(290, 20);
             this.folderBox.TabIndex = 1;
             this.folderBox.TextChanged += new System.EventHandler(this.folderBox_TextChanged);
             // 
             // folderBoxLabel
             // 
             this.folderBoxLabel.AutoSize = true;
-            this.folderBoxLabel.Location = new System.Drawing.Point(12, 13);
+            this.folderBoxLabel.Location = new System.Drawing.Point(9, 15);
             this.folderBoxLabel.Name = "folderBoxLabel";
             this.folderBoxLabel.Size = new System.Drawing.Size(69, 13);
             this.folderBoxLabel.TabIndex = 2;
@@ -77,7 +78,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(197, 8);
+            this.browseButton.Location = new System.Drawing.Point(224, 5);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 3;
@@ -88,11 +89,11 @@
             // infoLabel
             // 
             this.infoLabel.AutoSize = true;
-            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoLabel.ForeColor = System.Drawing.Color.Black;
-            this.infoLabel.Location = new System.Drawing.Point(104, 73);
+            this.infoLabel.Location = new System.Drawing.Point(6, 72);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(85, 15);
+            this.infoLabel.Size = new System.Drawing.Size(109, 16);
             this.infoLabel.TabIndex = 4;
             this.infoLabel.Text = "Select a folder";
             // 
@@ -105,9 +106,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 181);
+            this.button1.Location = new System.Drawing.Point(9, 165);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 23);
+            this.button1.Size = new System.Drawing.Size(130, 35);
             this.button1.TabIndex = 5;
             this.button1.Text = "Create configuration file";
             this.button1.UseVisualStyleBackColor = true;
@@ -115,14 +116,15 @@
             // 
             // extensionsBox
             // 
+            this.extensionsBox.Controls.Add(this.rtfCheckBox);
             this.extensionsBox.Controls.Add(this.xlsxCheckBox);
             this.extensionsBox.Controls.Add(this.xlsCheckBox);
             this.extensionsBox.Controls.Add(this.docxCheckBox);
             this.extensionsBox.Controls.Add(this.docCheckBox);
             this.extensionsBox.Controls.Add(this.pdfCheckBox);
-            this.extensionsBox.Location = new System.Drawing.Point(12, 126);
+            this.extensionsBox.Location = new System.Drawing.Point(9, 103);
             this.extensionsBox.Name = "extensionsBox";
-            this.extensionsBox.Size = new System.Drawing.Size(253, 49);
+            this.extensionsBox.Size = new System.Drawing.Size(290, 49);
             this.extensionsBox.TabIndex = 7;
             this.extensionsBox.TabStop = false;
             this.extensionsBox.Text = "File extensions to monitor";
@@ -187,11 +189,23 @@
             this.pdfCheckBox.Text = "pdf";
             this.pdfCheckBox.UseVisualStyleBackColor = true;
             // 
+            // rtfCheckBox
+            // 
+            this.rtfCheckBox.AutoSize = true;
+            this.rtfCheckBox.Checked = true;
+            this.rtfCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rtfCheckBox.Location = new System.Drawing.Point(250, 19);
+            this.rtfCheckBox.Name = "rtfCheckBox";
+            this.rtfCheckBox.Size = new System.Drawing.Size(35, 17);
+            this.rtfCheckBox.TabIndex = 12;
+            this.rtfCheckBox.Text = "rtf";
+            this.rtfCheckBox.UseVisualStyleBackColor = true;
+            // 
             // createConfBtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 211);
+            this.ClientSize = new System.Drawing.Size(306, 207);
             this.Controls.Add(this.extensionsBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.infoLabel);
@@ -224,6 +238,7 @@
         private System.Windows.Forms.CheckBox docxCheckBox;
         private System.Windows.Forms.CheckBox docCheckBox;
         private System.Windows.Forms.CheckBox pdfCheckBox;
+        private System.Windows.Forms.CheckBox rtfCheckBox;
     }
 }
 
