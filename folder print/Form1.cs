@@ -48,9 +48,7 @@ namespace folder_print
                 notifyIcon1.Visible = true;
                 this.Hide();
             }
-
-            else if (FormWindowState.Normal == this.WindowState)
-                notifyIcon1.Visible = false;
+            else if (FormWindowState.Normal == this.WindowState) notifyIcon1.Visible = false;
         }
 
         void serviceButtonClick ()
@@ -59,13 +57,13 @@ namespace folder_print
             {
                 infoLabel.Text = "Nothing to do";
                 serviceRunning = true;
+
                 if (Directory.Exists(folderBox.Text))
                 {
                     serviceButton.Text = "Stop service";
                     runService();
                 }
-                else
-                    infoLabel.Text = "Folder doesn't exist.";
+                else infoLabel.Text = "Folder doesn't exist.";
             }
             else
             {
@@ -82,23 +80,19 @@ namespace folder_print
 
         private void browseButton_Click(object sender, EventArgs e)
         {
-            using (var folderDialog = new FolderBrowserDialog())
-            {
+            using (var folderDialog = new FolderBrowserDialog())            
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
                     folderBox.Text = folderDialog.SelectedPath;
                     serviceButton.Enabled = true;
                     infoLabel.Text = "Start the service";
-                }
-            }
+                }            
         }
 
         private void print(string extension)
         {
-            if (serviceRunning)
-            {
-                foreach (string str in Directory.GetFiles(folderBox.Text))
-                {
+            if (serviceRunning)            
+                foreach (string str in Directory.GetFiles(folderBox.Text))                
                     if (str.Substring(str.Length - 3) == extension)
                     {
                         ProcessStartInfo psi = new ProcessStartInfo(str);
@@ -110,10 +104,7 @@ namespace folder_print
                         Thread.Sleep(10000);
                         while (IsFileLocked(file)) Thread.Sleep(5000);
 
-                        try
-                        {
-                            File.Delete(str);
-                        }
+                        try { File.Delete(str); }
                         catch (IOException)
                         {
                             infoLabel.Text = "File " + strSubstr[strSubstr.Length - 1] + " cannot be deleted!";
@@ -122,9 +113,7 @@ namespace folder_print
                         }
 
                         infoLabel.Text = "Nothing to do";
-                    }
-                }
-            }
+                    }                            
         }
 
         private async void runService()
@@ -154,19 +143,9 @@ namespace folder_print
         {
             FileStream stream = null;
 
-            try
-            {
-                stream = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None);
-            }
-            catch (IOException)
-            {
-                return true;
-            }
-            finally
-            {
-                if (stream != null)
-                    stream.Close();
-            }
+            try { stream = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None); }
+            catch (IOException) { return true; }
+            finally { if (stream != null) stream.Close(); }
 
             return false;
         }
